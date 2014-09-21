@@ -29,11 +29,16 @@ xmaspicsControllers.controller('SplashController', function ($scope) {
 
 xmaspicsControllers.controller('MemoryController', function ($scope) {
 	$scope.cards = 
-	[ {"id": "1", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/1.jpg"},
-	  {"id": "2", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/2.jpg"},
-	  {"id": "3", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/1.jpg"},
-	  {"id": "4", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/2.jpg"}
-	];
+		[ {"id": "1", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/1.jpg", "deckVisible": true},
+		  {"id": "2", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/2.jpg", "deckVisible": true},
+		  {"id": "3", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/1.jpg", "deckVisible": true},
+		  {"id": "4", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/2.jpg", "deckVisible": true}
+		];
+	
+	$scope.flipCard = function(card) {
+		//toggle deckVisible property
+		card.deckVisible = card.deckVisible ? false : true;
+	}
 	
 	
 });

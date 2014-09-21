@@ -1,7 +1,8 @@
 <div class="card-container">
 	<ul ng-repeat="card in cards">
 		<li id="{{card.id}}" class="card">
-			<img src="{{card.imgDeck}}" />
+			<img src="{{card.imgDeck}}" ng-click="flipCard(card)" ng-show="card.deckVisible" />
+			<img src="{{card.img}}" ng-click="flipCard(card)" ng-hide="card.deckVisible" />
 		</li>
 	</ul>
 </div>
