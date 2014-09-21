@@ -61,6 +61,8 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 			$scope.cards.push(card1);
 			$scope.cards.push(card2);
 		}
+		
+		shuffle($scope.cards);
 	}
 	
 	function checkMatchingCards() {
@@ -84,5 +86,12 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 		//always clear openCards 
 		$scope.openCards = [];
 	}
+	
+	//+ Jonas Raoni Soares Silva
+	//@ http://jsfromhell.com/array/shuffle [v1.0]
+	function shuffle(o){ //v1.0
+	    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	    return o;
+	};
 	
 });
