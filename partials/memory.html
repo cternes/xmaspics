@@ -1,4 +1,7 @@
 <div class="card-container">
+	<div><h2>Points: {{score.points}}</h2></div>
+	<div><h2>Attempts: {{score.attempts}}</h2></div>
+
 	<ul ng-repeat="card in cards">
 		<li id="{{card.id}}" class="card">
 			<img src="{{card.imgDeck}}" ng-click="flipCard(card)" ng-show="card.deckVisible" />
