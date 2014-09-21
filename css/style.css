@@ -68,6 +68,24 @@ body {
 	left: 0;
 }
 
+/* Modal Dialog */
+.modal {
+	display: block;
+	background: #F77373;
+  	border: #ddd solid 1px;
+  	border-radius: 5px;
+  	margin-left: -200px;
+  	position: fixed; 
+  	left: 50%; 
+  	top: 30%;  
+  	z-index: 10; 
+  	width: 470px;
+}
+
+.modal-body {
+	margin-left: 35%;
+}
+
 /* Cards */
 .card-container {
 	margin-top: 50px;
@@ -76,6 +94,12 @@ body {
 
 .score-container {
 	margin-bottom: 25px;
+}
+
+.solved-container {
+	width: 500px;
+	height: 500px;
+	background: red;
 }
 
 .card {

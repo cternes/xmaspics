@@ -10,4 +10,10 @@
 			<img src="{{card.img}}" ng-click="flipCard(card)" ng-hide="card.deckVisible" />
 		</li>
 	</ul>
+	
+	<div class="modal" ng-show="score.isGameSolved">
+		<div class="modal-body">
+			<span class="big-40">Solved</span>	
+		</div>
+	</div>
 </div>

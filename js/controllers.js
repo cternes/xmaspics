@@ -37,9 +37,12 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 	
 	$scope.flipCard = function(card) {
 		//do nothing if card cannot be flipped
-		if(!card.canFlipped) {
+		if(!card.deckVisible) {
 			return;
 		}
+		
+		//clear open cards from last attempt
+		clearOpenCards();
 		
 		//toggle deckVisible property
 		card.deckVisible = card.deckVisible ? false : true;
@@ -51,13 +54,14 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 		//when two cards are open, check if they match
 		if($scope.openCards.length == 2) {
 			checkMatchingCards();
+			checkGameSolved();
 		}
 	}
 	
 	function initCards(folder) {
 		for (var i = 1; i < 9; i++) {
-			var card1 = {"id": i, "imgDeck": folder + "/card_hidden.jpg", "img": folder + "/" + i + ".jpg", "deckVisible": true, "canFlipped": true};
-			var card2 = {"id": i + 9, "imgDeck": folder + "/card_hidden.jpg", "img": folder + "/" + i + ".jpg", "deckVisible": true, "canFlipped": true};
+			var card1 = {"id": i, "imgDeck": folder + "/card_hidden.jpg", "img": folder + "/" + i + ".jpg", "deckVisible": true, "isSolved": false};
+			var card2 = {"id": i + 9, "imgDeck": folder + "/card_hidden.jpg", "img": folder + "/" + i + ".jpg", "deckVisible": true, "isSolved": false};
 			$scope.cards.push(card1);
 			$scope.cards.push(card2);
 		}
@@ -68,23 +72,40 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 	function checkMatchingCards() {
 		//if cards match, mark cards as not flippable and increase points
 		if($scope.openCards[0].img === $scope.openCards[1].img) {
-			$scope.openCards[0].canFlipped = false;
-			$scope.openCards[1].canFlipped = false;
+			$scope.openCards[0].deckVisible = false;
+			$scope.openCards[1].deckVisible = false;
+			$scope.openCards[0].isSolved = true;
+			$scope.openCards[1].isSolved = true;
 			
 			$scope.score.points++;
-		}
-		else {
-			$scope.openCards[0].canFlipped = true;
-			$scope.openCards[1].canFlipped = true;
-			$scope.openCards[0].deckVisible = true;
-			$scope.openCards[1].deckVisible = true;
 		}
 		
 		//always increase attempts
 		$scope.score.attempts++;
+	}
+	
+	function checkGameSolved() {
+		debugger;
+		for (var i = 0; i < $scope.cards.length; i++) {
+			if(!$scope.cards[i].isSolved) {
+				return;
+			}
+		}
 		
-		//always clear openCards 
-		$scope.openCards = [];
+		$scope.score.isGameSolved = true;
+	}
+	
+	function clearOpenCards() {
+		if($scope.openCards.length == 2) {
+			//do not flip already solved cards again
+			if(!$scope.openCards[0].isSolved && !$scope.openCards[1].isSolved) {
+				$scope.openCards[0].deckVisible = true;
+				$scope.openCards[1].deckVisible = true;	
+			}
+			
+			//always clear openCards 
+			$scope.openCards = [];
+		}
 	}
 	
 	//+ Jonas Raoni Soares Silva
