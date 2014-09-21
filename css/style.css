@@ -26,6 +26,14 @@ body {
 	text-align: center;
 }
 
+.big-40 {
+	font-size: 40px;
+}
+
+.left-100 {
+	margin-left: 100px;
+}
+
 .animated-number-fade-in {
 	opacity: 0;
 	font-size: 0px;
@@ -63,12 +71,18 @@ body {
 /* Cards */
 .card-container {
 	margin-top: 50px;
+	margin-left: 35px;
+}
+
+.score-container {
+	margin-bottom: 25px;
 }
 
 .card {
 	list-style-type: none;
 	float: left;
-	margin-right: 25px;	
+	margin-right: 25px;
+	margin-bottom: 25px;	
 }
 
 .card img {

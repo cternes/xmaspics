@@ -30,13 +30,10 @@ xmaspicsControllers.controller('SplashController', function ($scope) {
 xmaspicsControllers.controller('MemoryController', function ($scope) {
 	$scope.score = {"points": 0, "attempts": 0};
 	$scope.openCards = [];
+	$scope.cards = [];
 	
-	$scope.cards = 
-		[ {"id": "1", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/1.jpg", "deckVisible": true, "canFlipped": true},
-		  {"id": "2", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/2.jpg", "deckVisible": true, "canFlipped": true},
-		  {"id": "3", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/1.jpg", "deckVisible": true, "canFlipped": true},
-		  {"id": "4", "imgDeck": "img/01/card_hidden.jpg", "img": "img/01/2.jpg", "deckVisible": true, "canFlipped": true}
-		];
+	var folder = "img/01";
+	initCards(folder);
 	
 	$scope.flipCard = function(card) {
 		//do nothing if card cannot be flipped
@@ -48,11 +45,21 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 		card.deckVisible = card.deckVisible ? false : true;
 		
 		//add current cards to openCards
+		card.canFlipped = false;
 		$scope.openCards.push(card);
 		
 		//when two cards are open, check if they match
 		if($scope.openCards.length == 2) {
 			checkMatchingCards();
+		}
+	}
+	
+	function initCards(folder) {
+		for (var i = 1; i < 9; i++) {
+			var card1 = {"id": i, "imgDeck": folder + "/card_hidden.jpg", "img": folder + "/" + i + ".jpg", "deckVisible": true, "canFlipped": true};
+			var card2 = {"id": i + 9, "imgDeck": folder + "/card_hidden.jpg", "img": folder + "/" + i + ".jpg", "deckVisible": true, "canFlipped": true};
+			$scope.cards.push(card1);
+			$scope.cards.push(card2);
 		}
 	}
 	
@@ -65,6 +72,8 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 			$scope.score.points++;
 		}
 		else {
+			$scope.openCards[0].canFlipped = true;
+			$scope.openCards[1].canFlipped = true;
 			$scope.openCards[0].deckVisible = true;
 			$scope.openCards[1].deckVisible = true;
 		}

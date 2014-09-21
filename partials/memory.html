@@ -1,6 +1,8 @@
 <div class="card-container">
-	<div><h2>Points: {{score.points}}</h2></div>
-	<div><h2>Attempts: {{score.attempts}}</h2></div>
+	<p class="score-container">
+		<span class="big-40">Points: {{score.points}}</span>
+		<span class="big-40 left-100">Attempts: {{score.attempts}}</span>
+	</p>
 
 	<ul ng-repeat="card in cards">
 		<li id="{{card.id}}" class="card">
