@@ -85,7 +85,6 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 	}
 	
 	function checkGameSolved() {
-		debugger;
 		for (var i = 0; i < $scope.cards.length; i++) {
 			if(!$scope.cards[i].isSolved) {
 				return;
