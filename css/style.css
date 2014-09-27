@@ -14,7 +14,6 @@ body {
   width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .centered-box {
@@ -24,6 +23,10 @@ body {
   	height: 200px;
   	width: 200px;
 	text-align: center;
+}
+
+li {
+	list-style-type: none;
 }
 
 .big-40 {
@@ -87,28 +90,42 @@ body {
 }
 
 /* Cards */
-.card-container {
-	margin-top: 50px;
-	margin-left: 35px;
-}
-
 .score-container {
+	margin-top: 50px;
 	margin-bottom: 25px;
 }
 
-.solved-container {
-	width: 500px;
-	height: 500px;
-	background: red;
+.card-container {
+	position: relative;
+  	width: 220px;
+  	height: 165px;
+  	float: left;
+  	
+  	margin-top: 35px;
+	margin-left: 35px;
+  	
+  	z-index: 1;
+  	transform-style: preserve-3d;
+  	transition: all 1.0s linear;
+}
+
+.card-container-flipped {
+  	transform: rotateY(-180deg);
 }
 
 .card {
-	list-style-type: none;
-	float: left;
 	margin-right: 25px;
-	margin-bottom: 25px;	
+	margin-bottom: 25px;
 }
 
 .card img {
 	cursor: pointer;
+}
+
+.face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.face.back {
+  transform: rotateY(180deg);
 }
