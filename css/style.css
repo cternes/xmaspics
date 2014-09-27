@@ -3,25 +3,29 @@
 	padding: 0;
 }
 
-body {
-	//font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+body { //
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
 	font-family: 'Lobster', cursive;
 	background-color: #000;
- 	color: white;
+	color: white;
 }
 
 .container-centered {
-  width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .centered-box {
 	position: absolute;
 	margin: auto;
-	top: -250px; left: 0; bottom: 0; right: 0;
-  	height: 200px;
-  	width: 200px;
+	top: -250px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 200px;
+	width: 200px;
 	text-align: center;
 }
 
@@ -75,14 +79,14 @@ li {
 .modal {
 	display: block;
 	background: #F77373;
-  	border: #ddd solid 1px;
-  	border-radius: 5px;
-  	margin-left: -200px;
-  	position: fixed; 
-  	left: 50%; 
-  	top: 30%;  
-  	z-index: 10; 
-  	width: 470px;
+	border: #ddd solid 1px;
+	border-radius: 5px;
+	margin-left: -200px;
+	position: fixed;
+	left: 50%;
+	top: 30%;
+	z-index: 10;
+	width: 470px;
 }
 
 .modal-body {
@@ -97,20 +101,21 @@ li {
 
 .card-container {
 	position: relative;
-  	width: 220px;
-  	height: 165px;
-  	float: left;
-  	
-  	margin-top: 35px;
+	width: 220px;
+	height: 165px;
+	float: left;
+	margin-top: 35px;
 	margin-left: 35px;
-  	
-  	z-index: 1;
-  	transform-style: preserve-3d;
-  	transition: all 1.0s linear;
+	z-index: 1;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transition: all 1.0s linear;
+	-webkit-transition: all 1.0s linear;
 }
 
 .card-container-flipped {
-  	transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
 }
 
 .card {
@@ -123,9 +128,12 @@ li {
 }
 
 .face {
-  position: absolute;
-  backface-visibility: hidden;
+	position: absolute;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
+
 .face.back {
-  transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 }
