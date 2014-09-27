@@ -12,7 +12,7 @@ xmaspicsControllers.controller('SplashController', function ($scope) {
 	$scope.showSlideshow = false;
 	$scope.startSlideshow = function() {
 		$scope.showSlideshow = true;
-		
+			
 		//start zoom animation
 		var image1 = document.getElementById("p1");
 		var image2 = document.getElementById("p2");
@@ -31,9 +31,11 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 	$scope.score = {"points": 0, "attempts": 0};
 	$scope.openCards = [];
 	$scope.cards = [];
+	$scope.grid = [];
 	
 	var folder = "img/01";
 	initCards(folder);
+	initGrid();
 	
 	$scope.flipCard = function(card) {
 		//do nothing if card cannot be flipped
@@ -67,6 +69,19 @@ xmaspicsControllers.controller('MemoryController', function ($scope) {
 		}
 		
 		shuffle($scope.cards);
+	}
+	
+	function initGrid() {
+		var gridDimension = Math.sqrt($scope.cards.length);
+		var i = 0;
+		
+		for (var row = 0; row < gridDimension; row++) {
+			$scope.grid[row] = [];
+		    for (var col = 0; col < gridDimension; col++) {
+		    	$scope.grid[row][col] = $scope.cards[i];
+		        i++;
+		    }
+		}
 	}
 	
 	function checkMatchingCards() {
