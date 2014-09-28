@@ -101,9 +101,14 @@ li {
 }
 
 /* Cards */
+.memory-container {
+	margin: auto;
+	width: 900px;
+}
+
 .score-container {
-	margin-top: 50px;
-	margin-bottom: 25px;
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .card-container {
