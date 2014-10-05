@@ -3,12 +3,12 @@
 	padding: 0;
 }
 
-body { //
+body {
 	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
 		sans-serif;
 	font-family: 'Lobster', cursive;
 	background-color: #000;
-	color: white;
+	color: #fff;
 }
 
 .container-centered {
@@ -27,6 +27,18 @@ body { //
 	height: 200px;
 	width: 200px;
 	text-align: center;
+}
+
+a:active,
+a:link,
+a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #FF4136;
 }
 
 li {
@@ -48,7 +60,6 @@ li {
 
 .animated-number-fade-in:hover {
 	color: #FF4136;
-	cursor: pointer;
 }
 
 .image-box {
