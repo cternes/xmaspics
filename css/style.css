@@ -55,7 +55,7 @@ li {
 
 .animated-number-fade-in {
 	opacity: 0;
-	font-size: 0px;
+	font-size: 0;
 }
 
 .animated-number-fade-in:hover {
@@ -104,7 +104,7 @@ li {
 }
 
 .modal.ng-hide {
-	top: 0%;
+	top: 0;
 }
 
 .modal-body {
