@@ -1,5 +1,6 @@
-<div class="centered-box" ng-hide="showSlideshow">
+<div class="centered-box">
 	<h1 id="homescreen-number" class="animated-number-fade-in">
-	<a ng-href="#memory">{{currentDate}}</a>
+		<a ng-href="#memory" ng-show="showDate">{{currentDate}}</a>
 	</h1>
+	<h2 ng-hide="showDate">{{welcomeText}}</h2>
 </div>

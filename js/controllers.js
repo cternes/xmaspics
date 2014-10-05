@@ -1,14 +1,28 @@
 var xmaspicsControllers = angular.module('xmaspicsControllers', []);
 
-xmaspicsControllers.controller('SplashController', function ($scope) {
+xmaspicsControllers.constant( 'Constants', {
+	'debug': true
+});
+
+xmaspicsControllers.controller('SplashController', function ($scope, Constants) {
+
+	var date = new Date();
+	$scope.showDate = false;
 	
-	//fade in current date on startup
-	$scope.currentDate = new Date().getDate(); 
-	var number = document.getElementById("homescreen-number");
-	TweenLite.to(number, 3, {opacity: "1",
-							fontSize: "150px",
-							ease:Bounce.easeOut});
-	
+	//show text if month is not december and we're not in debug mode
+	if(date.getMonth() != 11 && !Constants.debug) {
+		$scope.welcomeText = "Es ist noch nicht Dezember";
+	}
+	else {
+		$scope.currentDate = date.getDate();
+		$scope.showDate = true;
+		
+		//fade in number on startup	
+		var number = document.getElementById("homescreen-number");
+		TweenLite.to(number, 3, {opacity: "1",
+								fontSize: "150px",
+								ease:Bounce.easeOut});
+	}
 });
 
 xmaspicsControllers.controller('MemoryController', function ($scope) {
