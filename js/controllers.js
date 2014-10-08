@@ -5,7 +5,6 @@ xmaspicsControllers.constant( 'Constants', {
 });
 
 xmaspicsControllers.controller('SplashController', function ($scope, Constants) {
-
 	var date = new Date();
 	$scope.showDate = false;
 	
@@ -26,12 +25,15 @@ xmaspicsControllers.controller('SplashController', function ($scope, Constants) 
 });
 
 xmaspicsControllers.controller('MemoryController', function ($scope) {
+	var date = new Date();
+	var currentDate = date.getDate();
+	var folder = "img/" + currentDate;
+	
 	$scope.score = {"points": 0, "attempts": 0};
 	$scope.openCards = [];
 	$scope.cards = [];
 	$scope.grid = [];
 	
-	var folder = "img/01";
 	initCards(folder);
 	initGrid();
 	
