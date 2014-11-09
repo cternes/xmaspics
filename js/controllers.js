@@ -1,11 +1,18 @@
 var xmaspicsControllers = angular.module('xmaspicsControllers', []);
 
 xmaspicsControllers.constant( 'Constants', {
-	'debug': true
+	'debug': true,
+	'debugDate': 1
 });
 
 xmaspicsControllers.controller('SplashController', function ($scope, Constants) {
 	var date = new Date();
+	
+	//overwrite date if in debug mode
+	if(Constants.debug) {
+		date = new Date(date.getFullYear() + "-12-" + Constants.debugDate);
+	}
+	
 	$scope.showDate = false;
 	
 	//show text if month is not december and we're not in debug mode
@@ -26,6 +33,12 @@ xmaspicsControllers.controller('SplashController', function ($scope, Constants) 
 
 xmaspicsControllers.controller('MemoryController', function ($scope) {
 	var date = new Date();
+	
+	//overwrite date if in debug mode
+	if(Constants.debug) {
+		date = new Date(date.getFullYear() + "-12-" + Constants.debugDate);
+	}
+	
 	var currentDate = date.getDate();
 	var folder = "img/" + currentDate;
 	
