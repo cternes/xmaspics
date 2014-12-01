@@ -107,6 +107,16 @@ li {
 	margin-left: 35%;
 }
 
+a.close-box {
+	position: relative;
+	float: right;
+	width: 25px;
+	height: 25px;
+	margin-top: -10px;
+	margin-right: -14px;
+	background-image: url(../img/close.png);
+}
+
 /* Cards */
 .memory-container {
 	margin: auto;

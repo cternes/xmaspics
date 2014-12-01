@@ -19,7 +19,8 @@
 
 	<div class="modal" ng-show="score.isGameSolved">
 		<div class="modal-body">
-			<span class="big-40">Gewonnen</span>
+			<a class="close-box" ng-show="score.isGameSolved" ng-click="score.isGameSolved=false"></a>
+			<span class="big-40">Geschafft</span>
 		</div>
 	</div>
 </div>
