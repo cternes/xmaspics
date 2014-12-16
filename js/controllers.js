@@ -1,7 +1,7 @@
 var xmaspicsControllers = angular.module('xmaspicsControllers', []);
 
 xmaspicsControllers.constant( 'Constants', {
-	'debug': true,
+	'debug': false,
 	'debugDate': 1
 });
 
@@ -31,7 +31,7 @@ xmaspicsControllers.controller('SplashController', function ($scope, Constants) 
 	}
 });
 
-xmaspicsControllers.controller('MemoryController', function ($scope) {
+xmaspicsControllers.controller('MemoryController', function ($scope, Constants) {
 	var date = new Date();
 	
 	//overwrite date if in debug mode
